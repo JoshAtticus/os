@@ -1,2 +1,2 @@
-# joshatticusOS
-Webtop developed almost entirely with ChatGPT Free.
+# AtticusOS
+Basic webtop with BetterMeower, Text Editor, iFrame WebBrowser, and PenguinMod.

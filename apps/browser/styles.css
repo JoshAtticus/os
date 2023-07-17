@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #222;
   color: #fff;
   margin: 0;
   padding: 0;
@@ -12,23 +12,28 @@ body {
   display: flex;
   align-items: center;
   padding: 0 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
 }
 
-#favicon-container {
-  display: flex;
-  align-items: center;
-  padding-right: 10px;
+#home-button,
+#go-button,
+#back-button,
+#forward-button,
+#refresh-button {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
 }
 
-#favicon {
-  max-height: 24px;
-  margin-right: 10px;
-  display: none;
+#home-button:hover,
+#go-button:hover,
+#back-button:hover,
+#forward-button:hover,
+#refresh-button:hover {
+  background-color: #555;
 }
 
 #url-input {
@@ -40,40 +45,20 @@ body {
   color: #fff;
 }
 
-#go-button,
-#back-button,
-#forward-button,
-#refresh-button,
-#home-buttom {
-  width: 30px;
-  height: 30px;
-  margin-right: 5px;
-  border: none;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-}
-
-#go-button:hover,
-#back-button:hover,
-#forward-button:hover,
-#refresh-button:hover,
-#home-button:hover {
-  background-color: #555;
-}
-
-#cors-error-message {
-  display: none;
-  padding: 10px;
-  background-color: #f00;
-  color: #fff;
-}
-
 #content {
   position: relative;
-  top: 40px;
   height: calc(100vh - 40px);
   overflow: hidden;
+}
+
+#page-iframe {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #banner {
@@ -83,20 +68,9 @@ body {
   font-weight: bold;
   text-align: center;
   display: none;
-  position: fixed;
+  position: absolute;
   top: 40px;
   left: 0;
   right: 0;
   z-index: 2;
-}
-
-#page-iframe {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  border: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
 }

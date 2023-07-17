@@ -19,6 +19,7 @@
             <li>View</li>
             <!-- Add more menu items as needed -->
         </ul>
+        <div id="clock" class="clock"></div>
     </div>
 
     <!-- Dock -->
@@ -49,50 +50,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="assets/script.js"></script>
-
-    <script>
-        var isSmallScreen = window.innerWidth < 800 || window.innerHeight < 640;
-        var isPortrait = window.innerWidth < window.innerHeight;
-        
-        if (isSmallScreen || isPortrait) {
-            var appLink = document.querySelector('.app-link[data-url="https://classic.bettermeower.app"]');
-            appLink.setAttribute('data-url', 'smallscreen.html');
-            appLink.setAttribute('data-title', 'Notice');
-        }
-        
-        $(document).ready(function() {
-            $(".app-link").click(function() {
-                var url = $(this).data("url");
-                var appTitle = $(this).data("title");
-                var appWindow = $("<div>").addClass("app-window resizable draggable").appendTo(".desktop");
-                var windowBar = $("<div>").addClass("window-bar").appendTo(appWindow);
-                var closeButton = $("<div>").addClass("red-circle").appendTo(windowBar);
-                var resizeButton = $("<div>").addClass("green-circle").appendTo(windowBar);
-                var title = $("<div>").addClass("title").text(appTitle).appendTo(windowBar);
-                var iframe = $("<iframe>").addClass("app-iframe").attr("src", url).appendTo(appWindow);
-
-                closeButton.click(function() {
-                    appWindow.remove();
-                });
-
-                resizeButton.click(function() {
-                    appWindow.toggleClass("maximized");
-                });
-
-                appWindow.draggable({
-                    handle: windowBar,
-                    containment: ".desktop",
-                    scroll: false
-                });
-
-                appWindow.resizable({
-                    handles: "n, e, s, w, ne, se, sw, nw",
-                    containment: ".desktop",
-                    minWidth: 200,
-                    minHeight: 200
-                });
-            });
-        });
-    </script>
 </body>
 </html>

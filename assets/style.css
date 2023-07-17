@@ -29,6 +29,12 @@ body {
     margin-right: 5px;
 }
 
+.clock {
+    color: #fff;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
 .menu-items {
     display: flex;
     align-items: center;

@@ -37,25 +37,62 @@
                 <img src="/os/apps/browser/icons/penguinmod.png" alt="PenguinMod">
             </li>
             
-            
             <!-- Add more app icons as needed -->
         </ul>
     </div>
 
     <!-- Desktop -->
     <div class="desktop">
-        <div class="app-window">
-            <div class="window-bar">
-                <div class="red-circle"></div>
-                <div class="green-circle"></div>
-                <div class="title"></div>
-            </div>
-            <iframe class="app-iframe" src=""></iframe>
-        </div>
+        <!-- App Windows will be dynamically added here -->
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="assets/script.js"></script>
+
+    <script>
+        var isMobileSafari = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
+        
+        if (isMobileSafari) {
+            var notification = document.createElement('div');
+            notification.className = 'mobile-notification';
+            notification.innerHTML = 'The experience on Mobile Safari may be limited. For the best experience, we recommend using a desktop browser.';
+            document.body.appendChild(notification);
+        }
+        
+        $(document).ready(function() {
+            $(".app-link").click(function() {
+                var url = $(this).data("url");
+                var appTitle = $(this).data("title");
+                var appWindow = $("<div>").addClass("app-window resizable draggable").appendTo(".desktop");
+                var windowBar = $("<div>").addClass("window-bar").appendTo(appWindow);
+                var closeButton = $("<div>").addClass("red-circle").appendTo(windowBar);
+                var resizeButton = $("<div>").addClass("green-circle").appendTo(windowBar);
+                var title = $("<div>").addClass("title").text(appTitle).appendTo(windowBar);
+                var iframe = $("<iframe>").addClass("app-iframe").attr("src", url).appendTo(appWindow);
+
+                closeButton.click(function() {
+                    appWindow.remove();
+                });
+
+                resizeButton.click(function() {
+                    appWindow.toggleClass("maximized");
+                });
+
+                appWindow.draggable({
+                    handle: windowBar,
+                    containment: ".desktop",
+                    scroll: false
+                });
+
+                appWindow.resizable({
+                    handles: "n, e, s, w, ne, se, sw, nw",
+                    containment: ".desktop",
+                    minWidth: 200,
+                    minHeight: 200
+                });
+            });
+        });
+    </script>
 </body>
 </html>

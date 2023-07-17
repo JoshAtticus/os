@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div id="toolbar">
-        <div id="favicon-container">
-            <img id="favicon" src="" alt="Favicon">
-        </div>
-        <button id="home-button"><i class="fas fa-home"></i></button>
-        <input id="url-input" type="text" placeholder="Enter URL">
-        <button id="go-button"><i class="fas fa-play"></i></button>
-        <button id="back-button"><i class="fas fa-arrow-left"></i></button>
-        <button id="forward-button"><i class="fas fa-arrow-right"></i></button>
-        <button id="refresh-button"><i class="fas fa-sync"></i></button>
-        <p style="color: grey; padding-left: 10px;">Your browser has CORS, so some sites might not load. Type <b>corsinfo</b> in the URL bar and press Go for more info.</p>
+  <div id="toolbar">
+    <button id="home-button"><i class="fas fa-home"></i></button>
+    <input id="url-input" type="text" placeholder="Enter URL">
+    <button id="go-button"><i class="fas fa-arrow-right"></i></button>
+    <button id="back-button"><i class="fas fa-arrow-left"></i></button>
+    <button id="forward-button"><i class="fas fa-arrow-right"></i></button>
+    <button id="refresh-button"><i class="fas fa-sync"></i></button>
+  </div>
+  <div id="content">
+    <iframe id="page-iframe"></iframe>
+    <div id="cors-error-message">
+      This site uses CORS. Please check the browser console for more information.
     </div>
-    <div id="content">
-        <div id="banner">
-            This site is not accessible in this browser.
-        </div>
-        <div id="iframe-container">
-            <iframe id="page-iframe"></iframe>
-        </div>
-        <div id="cors-error-message">
-            This site uses CORS. Please check the browser console for more information.
-        </div>
+    <div id="banner">
+      CORS Error: This site cannot be displayed.
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

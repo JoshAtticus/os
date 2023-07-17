@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Editor</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+<body>
+  <div id="options">
+    <div class="option">
+      <button id="bold-btn" class="icon-btn" title="Bold">
+        <i class="fas fa-bold"></i>
+      </button>
+      <button id="italic-btn" class="icon-btn" title="Italic">
+        <i class="fas fa-italic"></i>
+      </button>
+      <button id="underline-btn" class="icon-btn" title="Underline">
+        <i class="fas fa-underline"></i>
+      </button>
+    </div>
+
+    <div class="option">
+      <label for="fontsize">Font Size:</label>
+      <select id="fontsize">
+        <option value="2">2px</option>
+        <option value="6">6px</option>
+        <option value="10">10px</option>
+        <option value="14">14px</option>
+        <option value="18">18px</option>
+        <option value="24">24px</option>
+        <option value="36">36px</option>
+        <option value="48">48px</option>
+        <option value="60">60px</option>
+        <option value="72">72px</option>
+        <option value="96">96px</option>
+        <option value="108">108px</option>
+      </select>
+    </div>
+
+    <div class="option">
+      <label for="fontfamily">Font Family:</label>
+      <select id="fontfamily">
+        <option value="Arial">Arial</option>
+        <option value="Roboto">Roboto</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="editor" contenteditable="true" data-placeholder="Start typing here! Note that to update the font styles (such as bold font, font size, etc.), you'll need to select the text, then choose the font option!"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

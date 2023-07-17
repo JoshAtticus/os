@@ -1,0 +1,151 @@
+body {
+    background-image: url("wallpaper.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.menu-bar {
+    background-color: #333;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.menu-items {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-items li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.dock {
+    background-color: #333;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    white-space: nowrap;
+}
+
+.dock ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dock li {
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.dock img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 40px);
+    overflow: hidden;
+}
+
+.app-window {
+    position: relative;
+    background-color: #fff;
+    width: 800px;
+    height: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    cursor: move;
+}
+
+/* ... existing styles ... */
+
+.window-bar {
+    height: 40px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.red-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff5f57;
+    margin-right: 12px; /* Increase right margin for more padding */
+    margin-left: 10px; /* Increase left margin for more padding */
+    cursor: pointer;
+}
+
+.green-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #5aff5a;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.title {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    flex-grow: 1;
+    text-align: center;
+    padding-left: 5px; /* Add left padding for centering */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+.app-iframe {
+    width: 100%;
+    height: calc(100% - 40px);
+    border: none;
+}
+
+.open {
+    display: block;
+}

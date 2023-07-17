@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="clock.js"></script>
+    <script src="checkfor.js"></script>
+    <script src="tip.js"></script>
+</head>
+<body>
+    <script>removeFallbackMessage();</script>
+    <i><h1 id="current-time" style="color: grey; font-size: 60px">--:--:-- AM/PM</h1></i>
+    <p>This is the home page. It shows featured sites, tips, time and more.</p>
+    <p style="font-size: large;"><i>Psst! Scroll down</i></p>
+    <br>
+    <i><h1 style="color: grey; font-size: 60px">Featured Sites</h1></i>
+    <p>These sites have been confirmed to work in this browser and are official partners!</p>
+    <p style="font-size: large; color: grey;">No sites yet! Check back later or be the first to <a href="../help/#:~:text=your%20CORS%20poilicy.-,Become%20a%20partner!,-If%20you%27re%20a">become an official partner!</a></p>
+    <br>
+    <i><h1 style="color: grey; font-size: 60px">Help</h1></i>
+    <p>For help with Browser, type <b>help</b> into the URL bar and click go.</p>
+    <br>
+    <i><h1 style="color: grey; font-size: 60px">Useful Tip</h1></i>
+    <p id="random-tip" style="font-size:large">Loading tip...</p>
+    <script>
+      displayRandomTip()
+    </script>
+    <p style="color: grey; font-size: small;">Browser for joshatticusOS | Alpha v1.0</p>
+</body>

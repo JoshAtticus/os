@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>joshatticusOS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="Logo" class="logo">
+        </div>
+        <ul class="menu-items">
+            <li>File</li>
+            <li>Edit</li>
+            <li>View</li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </div>
+
+    <!-- Dock -->
+    <div class="dock">
+        <ul>
+            <li class="app-link" data-url="https://classic.bettermeower.app">
+                <img src="https://classic.bettermeower.app/assets/apple-touch-icon.cec63b24.png?v5=true" alt="BetterMeower">
+            </li>
+            <li class="app-link" data-url="/apps/texteditor/index.html" data-title="Text editor">
+                <img src="/apps/texteditor/icon.png" alt="Text editor">
+            </li>
+            <li class="app-link" data-url="/apps/browser/index.html" data-title="Browser">
+                <img src="/apps/browser/icon.png" alt="Browser">
+            </li>
+            <li class="app-link" data-url="https://penguinmod.site" data-title="PenguinMod">
+                <img src="/apps/browser/icons/penguinmod.png" alt="PenguinMod">
+            </li>
+            
+            
+            <!-- Add more app icons as needed -->
+        </ul>
+    </div>
+
+    <!-- Desktop -->
+    <div class="desktop">
+        <div class="app-window">
+            <div class="window-bar">
+                <div class="red-circle"></div>
+                <div class="green-circle"></div>
+                <div class="title"></div>
+            </div>
+            <iframe class="app-iframe" src=""></iframe>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>

@@ -55,10 +55,9 @@
         var isPortrait = window.innerWidth < window.innerHeight;
         
         if (isSmallScreen || isPortrait) {
-            var notification = document.createElement('div');
-            notification.className = 'small-screen-notification';
-            notification.innerHTML = 'The experience on small screens or in portrait orientation may be limited. For the best experience, we recommend using a desktop browser.';
-            document.body.appendChild(notification);
+            var appLink = document.querySelector('.app-link[data-url="https://classic.bettermeower.app"]');
+            appLink.setAttribute('data-url', 'smallscreen.html');
+            appLink.setAttribute('data-title', 'Notice');
         }
         
         $(document).ready(function() {

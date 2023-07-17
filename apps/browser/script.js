@@ -51,10 +51,23 @@ window.addEventListener('message', function (event) {
     }
 });
 
+
 window.addEventListener('DOMContentLoaded', function() {
     var iframe = document.getElementById('page-iframe');
     iframe.src = 'newtab/index.html';
   });
+
+  window.addEventListener('DOMContentLoaded', function() {
+    var iframe = document.getElementById('page-iframe');
+    var homeButton = document.getElementById('home-button');
+    
+    iframe.src = 'newtab/index.html';
+    
+    homeButton.addEventListener('click', function() {
+      iframe.src = 'newtab/index.html';
+    });
+  });
+  
   
 
 function navigateTo(url) {

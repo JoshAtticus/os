@@ -51,12 +51,13 @@
     <script src="assets/script.js"></script>
 
     <script>
-        var isMobileSafari = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
+        var isSmallScreen = window.innerWidth < 800 || window.innerHeight < 640;
+        var isPortrait = window.innerWidth < window.innerHeight;
         
-        if (isMobileSafari) {
+        if (isSmallScreen || isPortrait) {
             var notification = document.createElement('div');
-            notification.className = 'mobile-notification';
-            notification.innerHTML = 'The experience on Mobile Safari may be limited. For the best experience, we recommend using a desktop browser.';
+            notification.className = 'small-screen-notification';
+            notification.innerHTML = 'The experience on small screens or in portrait orientation may be limited. For the best experience, we recommend using a desktop browser.';
             document.body.appendChild(notification);
         }
         

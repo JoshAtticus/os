@@ -2,54 +2,32 @@ $(document).ready(function() {
     $(".app-link").click(function() {
         var url = $(this).data("url");
         var appTitle = $(this).data("title");
-        var appWindow = $("<div>").addClass("app-window resizable draggable").appendTo(".desktop");
-        var windowBar = $("<div>").addClass("window-bar").appendTo(appWindow);
-        var closeButton = $("<div>").addClass("red-circle").appendTo(windowBar);
-        var maximizeButton = $("<div>").addClass("green-circle").appendTo(windowBar);
-        var title = $("<div>").addClass("title").text(appTitle).appendTo(windowBar);
-        var iframe = $("<iframe>").addClass("app-iframe").attr("src", url).appendTo(appWindow);
 
-        closeButton.click(function() {
-            appWindow.remove();
-        });
-
-        maximizeButton.click(function() {
-            appWindow.toggleClass("maximized");
-        });
-
-        appWindow.draggable({
-            handle: windowBar,
-            containment: ".desktop",
-            scroll: false
-        });
-
-        appWindow.resizable({
-            handles: "n, e, s, w, ne, se, sw, nw",
-            containment: ".desktop",
-            minWidth: 200,
-            minHeight: 200
-        });
+        $(".app-iframe").attr("src", url);
+        $(".app-window").addClass("open");
+        $(".title").text(appTitle);
     });
 
-    function updateTime() {
-        var currentDate = new Date();
-        var hours = currentDate.getHours();
-        var minutes = currentDate.getMinutes();
-        var ampm = hours >= 12 ? 'PM' : 'AM';
+    $(".red-circle").click(function() {
+        $(".app-window").removeClass("open");
+        $(".app-iframe").attr("src", "");
+        $(".title").text("");
+    });
 
-        // Convert to 12-hour format
-        hours = hours % 12 || 12;
+    $(".green-circle").click(function() {
+        $(".app-window").toggleClass("maximized");
+    });
 
-        // Add leading zeros to minutes if less than 10
-        minutes = minutes < 10 ? '0' + minutes : minutes;
+    $(".app-window").draggable({
+        handle: ".window-bar",
+        containment: "body",
+        scroll: false
+    });
 
-        // Update the clock display
-        $('.clock').text(hours + ':' + minutes + ' ' + ampm);
-    }
-
-    // Call updateTime initially
-    updateTime();
-
-    // Update time every second
-    setInterval(updateTime, 1000);
+    $(".app-window").resizable({
+        handles: "n, e, s, w, ne, se, sw, nw",
+        containment: "body",
+        minWidth: 200,
+        minHeight: 200
+    });
 });

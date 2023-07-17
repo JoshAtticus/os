@@ -29,21 +29,6 @@ body {
     margin-right: 5px;
 }
 
-.clock-container {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 10px;
-}
-
-.clock {
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    margin-left: 5px;
-}
-
-
 .menu-items {
     display: flex;
     align-items: center;
@@ -115,8 +100,6 @@ body {
     display: none;
     cursor: move;
 }
-
-/* ... existing styles ... */
 
 .window-bar {
     height: 40px;

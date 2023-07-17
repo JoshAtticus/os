@@ -43,7 +43,8 @@ body {
 #go-button,
 #back-button,
 #forward-button,
-#refresh-button {
+#refresh-button,
+#home-buttom {
   width: 30px;
   height: 30px;
   margin-right: 5px;
@@ -56,7 +57,8 @@ body {
 #go-button:hover,
 #back-button:hover,
 #forward-button:hover,
-#refresh-button:hover {
+#refresh-button:hover,
+#home-button:hover {
   background-color: #555;
 }
 

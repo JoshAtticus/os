@@ -18,6 +18,12 @@ body {
     padding: 10px;
 }
 
+.menu-bar .clock {
+    position: absolute;
+    right: 10px;
+    align-items: center;
+}
+
 .logo-container {
     display: flex;
     align-items: center;

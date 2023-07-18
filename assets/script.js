@@ -6,6 +6,7 @@ $(document).ready(function() {
         $(".app-iframe").attr("src", url);
         $(".app-window").addClass("open");
         $(".title").text(appTitle);
+        $(".app-window").removeClass("maximized"); // Add this line to remove the maximized class
     });
 
     $(".red-circle").click(function() {
@@ -28,6 +29,9 @@ $(document).ready(function() {
         handles: "n, e, s, w, ne, se, sw, nw",
         containment: "body",
         minWidth: 200,
-        minHeight: 200
+        minHeight: 200,
+        start: function(event, ui) {
+            $(this).removeClass("maximized"); // Add this line to remove the maximized class when resizing starts
+        }
     });
 });

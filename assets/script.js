@@ -70,20 +70,21 @@ $(document).ready(function() {
     $(".desktop").on("click", ".green-circle", function() {
         var $window = $(this).closest(".app-window");
         var $desktop = $window.closest(".desktop");
+        var dockHeight = $(".dock").outerHeight();
 
         if ($window.hasClass("maximized")) {
             $window.removeClass("maximized");
             $window.css({
                 width: defaultWidth,
                 height: defaultHeight,
-                top: ($desktop.height() - defaultHeight) / 2,
+                top: ($desktop.height() - defaultHeight - dockHeight) / 2,
                 left: ($desktop.width() - defaultWidth) / 2
             });
         } else {
             $window.addClass("maximized");
             $window.css({
                 width: $desktop.width(),
-                height: $desktop.height(),
+                height: $desktop.height() - dockHeight,
                 top: 0,
                 left: 0
             });

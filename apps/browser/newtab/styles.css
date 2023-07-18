@@ -31,3 +31,7 @@ body {
   .fallback-message {
     display: block;
   }
+
+  li {
+    color: #fff;
+  }

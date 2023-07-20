@@ -48,6 +48,10 @@ body {
     padding: 10px;
 }
 
+.clock-icon {
+    list-style-type: none;
+}
+
 .dock {
     background-color: #333;
     color: #fff;

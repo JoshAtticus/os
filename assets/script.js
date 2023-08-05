@@ -48,7 +48,7 @@ $(document).ready(function() {
         var appTitle = $(this).data("title");
 
         // Create a new window
-        var $newWindow = $('<div class="app-window"><div class="window-bar"><div class="red-circle"></div><div class="green-circle"></div><div class="title"></div></div><iframe class="app-iframe" src=""></iframe></div>');
+        var $newWindow = $('<div class="app-window"><div class="window-bar"><div class="red-circle"></div><div class="green-circle"></div><div class="title"></div></div><embed class="app-iframe" src=""></embed></div>');
         $newWindow.find(".app-iframe").attr("src", url);
         $newWindow.find(".title").text(appTitle);
         $newWindow.appendTo(".desktop");

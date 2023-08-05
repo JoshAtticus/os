@@ -78,7 +78,8 @@ $(document).ready(function() {
                 width: defaultWidth,
                 height: defaultHeight,
                 top: ($desktop.height() - defaultHeight - dockHeight) / 2,
-                left: ($desktop.width() - defaultWidth) / 2
+                left: ($desktop.width() - defaultWidth) / 2,
+                'border-radius': '10px'
             });
         } else {
             $window.addClass("maximized");
@@ -86,7 +87,8 @@ $(document).ready(function() {
                 width: $desktop.width(),
                 height: $desktop.height() - dockHeight,
                 top: 0,
-                left: 0
+                left: 0,
+                'border-radius': '0px'
             });
         }
     });

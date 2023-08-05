@@ -18,7 +18,10 @@ var bannerMessages = {
     'https://github.com': 'GitHub does not work in this browser due to CORS.',
     'https://twitter.com': 'Twitter does not work in this browser due to CORS.',
     'https://reddit.com': 'Reddit does not work in this browser due to CORS. Use https://www.troddit.com instead.',
-    'https://browserbench.org': 'BrowserBench does not work in this Browser due to CORS. Use https://html5test.com or https://jsbench.me instead.'
+    'https://browserbench.org': 'BrowserBench does not work in this browser due to CORS. Use https://html5test.com or https://jsbench.me instead.',
+    'https://messages.google.com': 'Google Messages does not work in this browser due to CORS.',
+    'https://canva.com': 'Canva does not work in this browser due to CORS.',
+    'https://figma.com': 'Figma does not work in this browser due to CORS.'
 
 };
 

@@ -9,33 +9,58 @@
     <script src="assets/clock.js"></script>
 </head>
 <body>
+    <input type="file" id="file-input" accept="image/*" style="display: none;">
     <!-- Menu Bar -->
     <div class="menu-bar">
         <ul class="menu-items">
             <li class="app-link" data-url="https://joshatticus.is-a.dev" data-title="JoshAtticus Website">
-                <img style="height: 30px;" src="assets/logo.png" alt="Logo">
+                <img style="height: 30px; cursor: pointer;" src="assets/logo.png" alt="Logo">
             </li>
-            <li style="color: grey;">File</li>
-            <li style="color: grey;">Edit</li>
-            <li style="color: grey;">View</li>
-            <!-- Add more menu items as needed -->
+            <li style="color: grey; cursor: not-allowed;">File</li>
+            <li style="color: grey; cursor: not-allowed;">Edit</li>
+            <li style="color: grey; cursor: not-allowed;">View</li>
+            <li style="color: white; cursor: pointer;">Options
+                <ul>
+                    <li style="color: white; cursor: pointer;">Wallpaper
+                        <ul>
+                            <li class="custom-wallpaper-option" style="cursor: pointer;">Custom Wallpaper
+                                <ul>
+                                    <li class="file-upload-option" style="cursor: pointer;">File Upload</li>
+                                    <li class="image-url-option" style="cursor: pointer;">Image URL</li>
+                                </ul>
+                            </li>
+                            <li class="wallpaper-option" data-image="assets/wallpaper1.png" style="cursor: pointer;">Blurple Black</li>
+                            <li class="wallpaper-option" data-image="assets/wallpaper2.png" style="cursor: pointer;">Minty Green</li>
+                            <li class="wallpaper-option" data-image="assets/wallpaper3.png" style="cursor: pointer;">Autumn Gradient</li>     
+                            <li class="wallpaper-option" data-image="assets/wallpaper4.png" style="cursor: pointer;">Red Night</li>
+                            <li class="wallpaper-option" data-image="assets/wallpaper5.png" style="cursor: pointer;">Colourful Rainbow</li>                         
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+             <!-- Add more menu items as needed -->
         </ul>
-        <div class="clock"></div>
+        <ul>
+            <li class="app-link" data-url="apps/clock/index.html" data-title="Clock" style="list-style-type: none; margin-bottom: 20px; cursor: pointer;">
+                <div class="clock"></div>
+            </li>
+        </ul>
     </div>
 
     <!-- Dock -->
     <div class="dock">
         <ul>
-            <li class="app-link" data-url="https://classic.bettermeower.app" data-title="BetterMeower">
+            <li class="app-link" data-url="https://classic.bettermeower.app" data-title="BetterMeower" title="BetterMeower is the improved Meower client available for Web, Android and AtticusOS">
                 <img src="https://classic.bettermeower.app/assets/apple-touch-icon.cec63b24.png?v5=true" alt="BetterMeower">
             </li>
-            <li class="app-link" data-url="apps/texteditor/index.html" data-title="Text editor">
+            <li class="app-link" data-url="apps/texteditor/index.html" data-title="Text editor" title="Simple text editor for AtticusOS">
                 <img src="apps/texteditor/icon.png" alt="Text editor">
             </li>
-            <li class="app-link" data-url="apps/browser/index.html" data-title="Browser">
+            <li class="app-link" data-url="apps/browser/index.html" data-title="Browser" title="Simple iFrame based browser for AtticusOS">
                 <img src="apps/browser/icon.png" alt="Browser">
             </li>
-            <li class="app-link" data-url="https://penguinmod.site" data-title="PenguinMod">
+            <li class="app-link" data-url="https://penguinmod.site" data-title="PenguinMod" title="This app is deprecated. Use https://penguinmod.site in the browser instead.">
                 <img src="apps/browser/icons/penguinmod.png" alt="PenguinMod">
             </li>
             

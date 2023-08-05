@@ -9,6 +9,7 @@
     <script src="assets/clock.js"></script>
 </head>
 <body>
+    <input type="file" id="file-input" accept="image/*" style="display: none;">
     <!-- Menu Bar -->
     <div class="menu-bar">
         <ul class="menu-items">
@@ -18,10 +19,30 @@
             <li style="color: grey;">File</li>
             <li style="color: grey;">Edit</li>
             <li style="color: grey;">View</li>
-            <!-- Add more menu items as needed -->
+            <li style="color: white;">Options
+                <ul>
+                    <li style="color: white;">Wallpaper
+                        <ul>
+                            <li class="custom-wallpaper-option">Custom Wallpaper
+                                <ul>
+                                    <li class="file-upload-option">File Upload</li>
+                                    <li class="image-url-option">Image URL</li>
+                                </ul>
+                            </li>
+                            <li class="wallpaper-option" data-image="assets/wallpaper1.png">Blurple Black</li>
+                            <li class="wallpaper-option" data-image="assets/wallpaper2.png">Minty Green</li>
+                            <li class="wallpaper-option" data-image="assets/wallpaper3.png">Autumn Gradient</li>     
+                            <li class="wallpaper-option" data-image="assets/wallpaper4.png">Red Night</li>
+                            <li class="wallpaper-option" data-image="assets/wallpaper5.png">Colourful Rainbow</li>                         
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+             <!-- Add more menu items as needed -->
         </ul>
         <ul>
-            <li class="app-link" data-url="apps/clock/index.html" data-title="Clock">
+            <li class="app-link" data-url="apps/clock/index.html" data-title="Clock" style="list-style-type: none; margin-bottom: 20px">
                 <div class="clock"></div>
             </li>
         </ul>

@@ -1,8 +1,8 @@
 $(document).ready(function() {
     var resizing = false;
     var resizeStartWidth, resizeStartHeight;
-    var defaultWidth = 800;
-    var defaultHeight = 600;
+    var defaultWidth = 600;
+    var defaultHeight = 400;
 
     function makeWindowDraggableAndResizable($window) {
         $window.draggable({
@@ -15,8 +15,8 @@ $(document).ready(function() {
             }
         }).resizable({
             containment: ".desktop",
-            minHeight: 200,
-            minWidth: 200,
+            minHeight: 100,
+            minWidth: 100,
             resize: function(event, ui) {
                 if (resizing) {
                     var widthDelta = ui.size.width - resizeStartWidth;
@@ -90,4 +90,48 @@ $(document).ready(function() {
             });
         }
     });
+
+    $(".menu-items").on("click", ".wallpaper-option", function() {
+        var image = $(this).data("image");
+        $("body").css("background-image", "url('" + image + "')");
+        localStorage.setItem("wallpaper", image);
+    });    
+        
+    $(document).ready(function() {
+        $("body").css("background-image", "url('assets/wallpaper1.png')");
+    });
+
+    $(document).ready(function() {
+        var savedWallpaper = localStorage.getItem("wallpaper");
+        if (savedWallpaper) {
+            $("body").css("background-image", "url('" + savedWallpaper + "')");
+        }
+    });
+    
+    $(".menu-items").on("click", ".file-upload-option", function() {
+        $("#file-input").click();
+    });
+    
+    
+    $(".menu-items").on("click", ".image-url-option", function() {
+        var imageUrl = prompt("Please enter an image URL:", "");
+        if (imageUrl) {
+            $("body").css("background-image", "url('" + imageUrl + "')");
+            localStorage.setItem("wallpaper", imageUrl);
+        }
+    });    
+
+    $("#file-input").change(function() {
+        var file = this.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var imageUrl = e.target.result;
+                $("body").css("background-image", "url('" + imageUrl + "')");
+                localStorage.setItem("wallpaper", imageUrl);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    
 });

@@ -98,6 +98,56 @@ $(document).ready(function() {
         $("body").css("background-image", "url('" + image + "')");
         localStorage.setItem("wallpaper", image);
     });    
+
+    $(".menu-items").on("click", ".close-windows-option", function() {
+        $(".app-window").remove();
+    });
+    
+    $(document).ready(function() {
+        // Load the bold text and zoom settings from localStorage on page load
+        var boldTextSetting = localStorage.getItem("boldTextSetting");
+        if (boldTextSetting === "true") {
+            $("body").addClass("bold-text");
+        }
+    
+        var zoomSetting = localStorage.getItem("zoomSetting");
+        if (zoomSetting) {
+            $("body").css("zoom", zoomSetting + "%");
+        }
+    
+        // Check if the user is using Safari
+        var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    
+        // Toggle bold text setting and save to localStorage on click
+        $(".menu-items").on("click", ".toggle-bold-option", function() {
+            $("body").toggleClass("bold-text");
+            boldTextSetting = $("body").hasClass("bold-text") ? "true" : "false";
+            localStorage.setItem("boldTextSetting", boldTextSetting);
+        });
+    
+        // Apply "greyed out" style to "Toggle Zoom" option on Safari
+        if (isSafari) {
+            $(".zoom-menu").addClass("disabled");
+            var safariZoomState = localStorage.getItem("safariZoomState");
+            if (safariZoomState === "disabled") {
+                $(".zoom-menu").addClass("disabled");
+            }
+        }
+    
+        // Handle zoom selection and apply chosen zoom level
+        $(".zoom-option").on("click", function() {
+            if (!isSafari) { // Only apply zoom if not using Safari
+                var selectedZoom = $(this).data("zoom");
+                $("body").css("zoom", selectedZoom + "%");
+                localStorage.setItem("zoomSetting", selectedZoom);
+            } else {
+                $(".zoom-menu").addClass("disabled");
+                localStorage.setItem("safariZoomState", "disabled");
+            }
+        });
+    
+        // ... (other code)
+    });
         
     $(document).ready(function() {
         $("body").css("background-image", "url('assets/wallpaper1.png')");

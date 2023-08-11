@@ -143,10 +143,10 @@ body {
     font-family: 'Roboto', sans-serif;
     flex-grow: 1;
     text-align: center;
-    padding-left: 5px; /* Add left padding for centering */
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    margin-right: 35px;
+    justify-content: center;
+    align-items: center;
 }
 
 .app-iframe {
@@ -173,6 +173,7 @@ body {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    padding: 8px 8px;
 }
 
 .menu-items li:hover > ul {
@@ -203,13 +204,23 @@ body {
     display: none;
     position: absolute;
     left: 100%;
-    top: 0;
+    top: 20%;
     margin-top: -24px; /* Adjust this value as needed */
 }
 
 .menu-items li ul li:hover > ul {
     display: block;
 }
+
+.bold-text {
+    font-weight: bold;
+}
+
+.disabled {
+    color: grey;
+    cursor: not-allowed;
+}
+
 
 
 

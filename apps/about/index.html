@@ -15,7 +15,7 @@
     
         // Load the current.ver file and compare the versions
         $.ajax({
-            url: 'current.ver',
+            url: 'https://joshatticus.is-a.dev/os/apps/about/current.ver',
             cache: false,
             success: function(data) {
                 var latestVersion = data.trim();

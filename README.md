@@ -1,2 +1,2 @@
 # AtticusOS
-Basic webtop with BetterMeower, Text Editor, iFrame WebBrowser, and PenguinMod.
+Basic webtop with BetterMeower, Text Editor and an iFrame WebBrowser.

@@ -29,6 +29,11 @@ body {
     font-size: x-large;
   }
 
+  .updateButton {
+    color: #ffffff;
+    font-size: x-large;
+  }
+
   a {
     color: cyan;
   }

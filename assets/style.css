@@ -24,6 +24,11 @@ body {
     right: 25px;
     align-items: center;
 }
+.menu-bar .updates {
+    position: absolute;
+    right: 100px;
+    align-items: center;
+}
 
 .logo-container {
     display: flex;

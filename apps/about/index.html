@@ -10,13 +10,38 @@
     <script src="screenres.js"></script>
     <script src="hostinfo.js"></script>
     <script src="ip.js"></script>
+    <script>
+        var currentVersion = "1.4.4";  // Your current version here
     
+        // Load the current.ver file and compare the versions
+        $.ajax({
+            url: 'current.ver',
+            cache: false,
+            success: function(data) {
+                var latestVersion = data.trim();
+                var updatesSpan = document.querySelector('.updates');
+                var updateButton = document.querySelector('.updateButton');
+                if (latestVersion !== currentVersion) {
+                    updatesSpan.textContent = "AtticusOS v" + latestVersion + " is ready to install."
+                    updatesSpan.style.color = 'yellow';
+                    updateButton.style.display = 'block';
+                } else {
+                    updatesSpan.textContent = "AtticusOS is already up to date!"
+                    updatesSpan.style.color = 'lime';
+                    updateButton.style.display = 'none';
+                }
+            }
+        });
+    </script>
+      
 </head>
 <body>
     <center>
         <img src="../../manifest/mstile-70x70.png" />
-        <h1 style="top: 20px;">AtticusOS 1.4.3</h1>
+        <h1 style="top: 20px;">AtticusOS 1.4.4</h1>
+        <span style="color: yellow;" class="outdated-warning"></span>
         <hr>
+        <h1>Hardware</h1>
         <span>Screen Resolution - </span><b><span class="screen-resolution">Failed to get info :(</span></b>
         <br>
         <span>Host Browser - </span><b><span class="browser-info">Failed to get info :(</span></b>
@@ -24,14 +49,13 @@
         <span>Host OS - </span><b><span class="os-info">Failed to get info :(</span></b>
         <br>
         <hr>
-        <span>IP Address - </span><b><span class="ip-info">Loading...</span></b>
+        <h1>Updates</h1>
+        <span class="updates">Checking for Updates...</span>
         <br>
-        <span>Country - </span><b><span class="country-info">Loading...</span></b>
-        <br>
-        <span>ISP - </span><b><span class="isp-info">Loading...</span></b>
-        <br>
+        <a class="updateButton" href="javascript:location.reload();"><span>Install Update</span></a>
         <hr>
         <br>
         <span style="font-size: medium;">©2023 JoshAtticus | Source code available on <a target="_blank" href="https://github.com/JoshAtticus/os">GitHub</a></span>
     </center>
 </body>
+</html>

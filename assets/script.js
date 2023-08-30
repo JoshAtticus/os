@@ -150,7 +150,7 @@ $(document).ready(function() {
     });
         
     $(document).ready(function() {
-        $("body").css("background-image", "url('assets/wallpaper1.png')");
+        $("body").css("background-image", "url('assets/wallpapers/default/wallpaper1.webp')");
     });
 
     $(document).ready(function() {

@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #222;
+  background-color: #333;
   color: #fff;
   height: 100vh;
   display: flex;
@@ -28,11 +28,22 @@ body {
   color: #fff;
   border: 1px solid #fff;
   padding: 5px;
+  border-radius: 2%;
+}
+
+#options .icon-btn {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 5px;
+  border-radius: 25%;
+  padding-left: 5px;
 }
 
 #options .option {
   display: flex;
   align-items: center;
+  border-radius: 25%;
 }
 
 #options .option:not(:last-child) {
@@ -48,6 +59,7 @@ body {
   background-color: #222;
   color: #fff;
   overflow-y: auto;
+  border-radius: 2%;
 }
 
 #editor:empty::before {

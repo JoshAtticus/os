@@ -79,7 +79,7 @@ $(document).ready(function() {
                 height: defaultHeight,
                 top: ($desktop.height() - defaultHeight - dockHeight) / 2,
                 left: ($desktop.width() - defaultWidth) / 2,
-                'border-radius': '10px'
+                'border-radius': '25px'
             });
         } else {
             $window.addClass("maximized");

@@ -18,7 +18,7 @@ body {
     display: flex;
     align-items: center;
     padding: 2px;
-    border-radius: 25px;
+    border-radius: 0px;
     align-self: center;
 }
 
@@ -134,7 +134,7 @@ body {
     border-radius: 50%;
     background-color: #ff5f57;
     margin-right: 12px; /* Increase right margin for more padding */
-    margin-left: 10px; /* Increase left margin for more padding */
+    margin-left: 15px; /* Increase left margin for more padding */
     cursor: pointer;
 }
 

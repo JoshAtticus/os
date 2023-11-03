@@ -66,3 +66,24 @@ body {
   content: attr(data-placeholder);
   color: #777;
 }
+
+/* Define the scrollbar track */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+/* Define the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #222; /* Dark grey color */
+  border-radius: 25px; /* Rounded corners */
+}
+
+/* Define the scrollbar track on hover (optional) */
+::-webkit-scrollbar-thumb:hover {
+  background: #444; /* Darker grey color on hover */
+}
+
+/* Define the scrollbar track background */
+::-webkit-scrollbar-track {
+  background: #333; /* Grey background for the track */
+}

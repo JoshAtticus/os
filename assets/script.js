@@ -4,61 +4,131 @@ $(document).ready(function() {
     var defaultWidth = 600;
     var defaultHeight = 400;
 
-    function makeWindowDraggableAndResizable($window) {
+    function makeWindowDraggableAndResizable($window, width, height, allowResize, allowMaximize, allowDrag) {
         $window.draggable({
             handle: ".window-bar",
             containment: ".desktop",
-            start: function() {
+            start: function () {
                 resizing = false;
-                resizeStartWidth = $(this).width();
-                resizeStartHeight = $(this).height();
-            }
-        }).resizable({
-            containment: ".desktop",
-            minHeight: 100,
-            minWidth: 100,
-            resize: function(event, ui) {
-                if (resizing) {
-                    var widthDelta = ui.size.width - resizeStartWidth;
-                    var heightDelta = ui.size.height - resizeStartHeight;
-
-                    $(this).width(resizeStartWidth + widthDelta);
-                    $(this).height(resizeStartHeight + heightDelta);
-                } else {
-                    resizing = true;
-                    resizeStartWidth = $(this).width();
-                    resizeStartHeight = $(this).height();
-                }
-            }
-        }).on("resize", function() {
-            var desktopHeight = $(".desktop").height();
-            var windowHeight = $(this).height();
-            var windowWidth = $(this).width();
-            if (windowHeight > desktopHeight) {
-                $(this).height(desktopHeight);
-            }
-            if (windowWidth > $(".desktop").width()) {
-                $(this).width($(".desktop").width());
+                resizeStartWidth = $window.width();
+                resizeStartHeight = $window.height();
             }
         });
+    
+        if (allowResize) {
+            $window.resizable({
+                containment: ".desktop",
+                minHeight: 100,
+                minWidth: 100,
+                resize: function (event, ui) {
+                    if (resizing) {
+                        var widthDelta = ui.size.width - resizeStartWidth;
+                        var heightDelta = ui.size.height - resizeStartHeight;
+    
+                        $window.width(resizeStartWidth + widthDelta);
+                        $window.height(resizeStartHeight + heightDelta);
+                    } else {
+                        resizing = true;
+                        resizeStartWidth = $window.width();
+                        resizeStartHeight = $window.height();
+                    }
+                }
+            }).on("resize", function () {
+                var desktopHeight = $(".desktop").height();
+                var windowHeight = $window.height();
+                var windowWidth = $window.width();
+                if (windowHeight > desktopHeight) {
+                    $window.height(desktopHeight);
+                }
+                if (windowWidth > $(".desktop").width()) {
+                    $window.width($(".desktop").width());
+                }
+            });
+        }
+    
+        if (!allowDrag) {
+            $window.draggable("disable");
+            $window.removeClass("draggable");
+        }
+    
+        if (width) {
+            $window.width(width);
+        }
+    
+        if (height) {
+            $window.height(height);
+        }
+    
+        if (allowMaximize) {
+            $window.find(".green-circle").show();
+        } else {
+            $window.find(".green-circle").hide();
+        }
     }
+    
 
     $(".app-link").click(function() {
         var url = $(this).data("url");
         var appTitle = $(this).data("title");
-
+    
         // Create a new window
         var $newWindow = $('<div class="app-window"><div class="window-bar"><div class="red-circle"></div><div class="green-circle"></div><div class="title"></div></div><embed class="app-iframe" src=""></embed></div>');
         $newWindow.find(".app-iframe").attr("src", url);
         $newWindow.find(".title").text(appTitle);
         $newWindow.appendTo(".desktop");
-
+    
         // Make the new window draggable and resizable
-        makeWindowDraggableAndResizable($newWindow);
-
+        makeWindowDraggableAndResizable($newWindow, width, height, allowResize, allowMaximize, allowDrag, true);
+    
         // Show the new window
         $newWindow.addClass("open");
     });
+    
+    function makeWindowDraggableAndResizable($window, allowDrag) {
+        $window.draggable({
+            handle: ".window-bar",
+            containment: ".desktop",
+            start: function () {
+                resizing = false;
+                resizeStartWidth = $window.width();
+                resizeStartHeight = $window.height();
+            }
+        }).resizable({
+            containment: ".desktop",
+            minHeight: 100,
+            minWidth: 100,
+            resize: function (event, ui) {
+                if (resizing) {
+                    var widthDelta = ui.size.width - resizeStartWidth;
+                    var heightDelta = ui.size.height - resizeStartHeight;
+    
+                    $window.width(resizeStartWidth + widthDelta);
+                    $window.height(resizeStartHeight + heightDelta);
+                } else {
+                    resizing = true;
+                    resizeStartWidth = $window.width();
+                    resizeStartHeight = $window.height();
+                }
+            }
+        }).on("resize", function () {
+            var desktopHeight = $(".desktop").height();
+            var windowHeight = $window.height();
+            var windowWidth = $window.width();
+            if (windowHeight > desktopHeight) {
+                $window.height(desktopHeight);
+            }
+            if (windowWidth > $(".desktop").width()) {
+                $window.width($(".desktop").width());
+            }
+        });
+    
+        if (!allowDrag) {
+            $window.draggable("disable");
+            $window.removeClass("draggable");
+        }
+    }
+    
+    
 
     // Close window on click of red circle
     $(".desktop").on("click", ".red-circle", function() {

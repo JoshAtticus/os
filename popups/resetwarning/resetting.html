@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>You're about to reset AtticusOS</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+<body>
+    <center>
+        <h1>Resetting this device...</h1>
+    <script>
+        // Function to handle the reset process
+        document.getElementById("resetButton").addEventListener("click", function () {
+            // Change the iframe to resetting.html
+            window.location.href = "resetting.html";
+
+            // Clear the localStorage on the parent page
+            parent.localStorage.clear();
+
+            // Change the iframe back to success.html (you can use a timeout to ensure the parent clears the localStorage before the iframe changes)
+            setTimeout(function () {
+                window.location.href = "success.html";
+            }, 3000); // Adjust the timeout delay as needed
+        });
+    </script>
+    </center>
+</body>

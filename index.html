@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/os/manifest/apple-touch-icon.png?v2=true">
-    <link rel="icon" type="image/webp" sizes="32x32" href="/os/manifest/favicon-32x32.png?v2=true">
-    <link rel="icon" type="image/webp" sizes="16x16" href="/os/manifest/favicon-16x16.png?v2=true">
-    <link rel="manifest" href="/os/manifest/site.webmanifest?v2=true">
-    <link rel="mask-icon" href="/os/manifest/safari-pinned-tab.svg?v2=true" color="#3f3f3f">
-    <link rel="shortcut icon" href="/os/manifest/favicon.ico?v2=true">
+    <link rel="apple-touch-icon" sizes="180x180" href="/manifest/apple-touch-icon.png?v2=true">
+    <link rel="icon" type="image/webp" sizes="32x32" href="/manifest/favicon-32x32.png?v2=true">
+    <link rel="icon" type="image/webp" sizes="16x16" href="/manifest/favicon-16x16.png?v2=true">
+    <link rel="manifest" href="/manifest/site.webmanifest?v2=true">
+    <link rel="mask-icon" href="/manifest/safari-pinned-tab.svg?v2=true" color="#3f3f3f">
+    <link rel="shortcut icon" href="/manifest/favicon.ico?v2=true">
     <meta name="apple-mobile-web-app-title" content="AtticusOS">
     <meta name="application-name" content="AtticusOS">
     <meta name="msapplication-TileColor" content="#3f3f3f">
-    <meta name="msapplication-config" content="/os/manifest/browserconfig.xml?v2=true">
+    <meta name="msapplication-config" content="/manifest/browserconfig.xml?v2=true">
     <meta name="theme-color" content="#3f3f3f">
     <script src="assets/clock.js"></script>
 </head>
@@ -29,13 +29,16 @@
             </li>
             <li style="color: white; cursor: pointer;">File
                 <ul>
-                    <li onclick='var confirmDelete = confirm("HOLD UP! Are you sure you want to delete all AtticusOS data? This action is permanent.");
-                    if (confirmDelete) {
-                      localStorage.clear();
-                      alert("Your AtticusOS data has been deleted. It might take a while to sync across devices if you have browser sync enabled. Press OK to restart.");
-                      location.reload();
-                    }
-                    '>Reset AtticusOS</li>
+                    <li class="app-link"
+                        data-url="popups/resetwarning/index.html"
+                        data-title="Reset AtticusOS"
+                        data-width="200"
+                        data-height="200"
+                        data-resizable="false"
+                        data-draggable="true"
+                        data-maximizable="false"
+                        title="Resets your AtticusOS settings">
+                    Reset AtticusOS</li>
                     <li class="close-windows-option">Close All Windows</li>
                 </ul>
             <li style="color: white; cursor: pointer;">Edit
@@ -112,17 +115,39 @@
     <!-- Dock -->
     <div class="dock">
         <ul>
-            <li class="app-link" data-url="https://classic.bettermeower.app" data-title="BetterMeower" title="BetterMeower is the improved Meower client available for Web, Android and AtticusOS">
+            <li class="app-link"
+                data-url="https://classic.bettermeower.app"
+                data-title="BetterMeower"
+                data-width="600"
+                data-height="400"
+                data-resizable="true"
+                data-draggable="true"
+                data-maximizable="true"
+                title="BetterMeower is the improved Meower client available for Web, Android and AtticusOS">
                 <img src="https://classic.bettermeower.app/assets/apple-touch-icon.cec63b24.png?v5=true" alt="BetterMeower">
             </li>
-            <li class="app-link" data-url="apps/texteditor/index.html" data-title="Text editor" title="Simple text editor for AtticusOS">
+            <li class="app-link"
+                data-url="apps/texteditor/index.html"
+                data-title="Text editor"
+                data-width="600"
+                data-height="400"
+                data-resizable="true"
+                data-draggable="true"
+                data-maximizable="true"
+                title="Simple text editor for AtticusOS">
                 <img src="apps/texteditor/icon.png" alt="Text editor">
             </li>
-            <li class="app-link" data-url="apps/browser/index.html" data-title="Browser" title="Simple iFrame based browser for AtticusOS">
+            <li class="app-link"
+                data-url="apps/browser/index.html"
+                data-title="Browser"
+                data-width="600"
+                data-height="400"
+                data-resizable="true"
+                data-draggable="true"
+                data-maximizable="true"
+                title="Simple iFrame based browser for AtticusOS">
                 <img src="apps/browser/icon.png" alt="Browser">
             </li>
-            
-            
             <!-- Add more app icons as needed -->
         </ul>
     </div>

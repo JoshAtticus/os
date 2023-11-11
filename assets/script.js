@@ -78,7 +78,7 @@ $(document).ready(function() {
         $newWindow.appendTo(".desktop");
     
         // Make the new window draggable and resizable
-        makeWindowDraggableAndResizable($newWindow, width, height, allowResize, allowMaximize, allowDrag, true);
+        makeWindowDraggableAndResizable($newWindow, true);
     
         // Show the new window
         $newWindow.addClass("open");

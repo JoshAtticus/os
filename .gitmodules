@@ -1,0 +1,3 @@
+[submodule "apps/markpad"]
+	path = apps/markpad
+	url = https://github.com/JoshAtticus/markpad

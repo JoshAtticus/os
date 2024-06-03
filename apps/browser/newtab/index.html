@@ -1,38 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script src="clock.js"></script>
     <script src="tip.js"></script>
+    <title>Homepage</title>
 </head>
+
 <body>
-    <i><h1 id="current-time" style="color: grey; font-size: 60px">--:--:-- AM/PM</h1></i>
-    <p>This is the home page. It shows featured sites, tips, time and more.</p>
-    <p style="font-size: large;"><i>Psst! Scroll down</i></p>
-    <br>
-    <i><h1 style="color: grey; font-size: 60px">Featured Sites</h1></i>
-    <p>These sites have been confirmed to work in this browser and are official partners! <a href="../help/#:~:text=your%20CORS%20poilicy.-,Become%20a%20partner!,-If%20you%27re%20a">Click here to get <b>your</b> site featured for free!</a></p>
-    <li style="color: #30D27B;">BetterMeower - The most popular alternative Meower client - <a href="https://bettermeower.app">Open</a></li>
-    <br>
-    <i><h1 style="color: grey; font-size: 60px">Help</h1></i>
-    <p>For help with Browser, type <b>help</b> into the URL bar and click go.</p>
-    <br>
-    <i><h1 style="color: grey; font-size: 60px">Useful Tip</h1></i>
-    <p id="random-tip" style="font-size:large">Loading tip...</p>
+    <div class="container">
+        <h1 id="current-time" class="clock">--:-- AM/PM</h1>
+        <div id="search-bar-container" style="display: none;">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search with AtticusWeb...">
+                <button id="search-button">Search</button>
+            </div>
+        </div>
+        <button id="show-more-button">Show more</button>
+    </div>
+    <div id="more-content" class="more-content hidden">
+        <section>
+            <h1>Featured Sites</h1>
+            <p>These sites have been confirmed to work in this browser and are official partners! <a
+                    href="../help/#:~:text=your%20CORS%20poilicy.-,Become%20a%20partner!,-If%20you%27re%20a">Click here
+                    to get <b>your</b> site featured for free!</a></p>
+            <ul>
+                <li>leo - a fork of meo with some extra awesome features :D | <a
+                        href="https://leo.atticat.tech">Open</a></li>
+            </ul>
+        </section>
+        <section>
+            <h1>Help</h1>
+            <p>For help with Browser, type <b>help</b> into the URL bar and click go.</p>
+        </section>
+        <section>
+            <h1>Useful Tip</h1>
+            <p id="random-tip">Loading tip...</p>
+        </section>
+        <section>
+            <h1>Changelogs</h1>
+            <h2>Browser v2.0</h2>
+            <ul>
+                <li>New translucent & glassmorphic UI</li>
+                <li>Revamped home page</li>
+            </ul>
+            <h2>AtticusOS v2.0</h2>
+            <b>Changes</b>
+            <hr>
+            <ul>
+                <li>Moved to https://os.atticat.tech</li>
+                <li>Brand new translucent & glassmorphic UI</li>
+                <li>More compact menu bar</li>
+                <li>New app icons</li>
+                <li>Clock is now a user-accessible app</li>
+                <li>Dock is now floating and icons have animations</li>
+                <li>Changed font from Roboto to Inter</li>
+                <li>Replaced old text editor with Markpad created by 3r1s-s and optimised for AtticusOS</li>
+            </ul>
+            <b>Bug Fixes</b>
+            <hr>
+            <ul>
+                <li>Reset AtticusOS no longer succeeds with an error</li>
+                <li>Maximised windows no longer have empty space at the top</li>
+                <li>Window titles are no longer off-center</li>
+                <li>Action buttons on window title bars are now properly padded</li>
+            </ul>
+        </section>
+        <footer>
+            <p>Browser for AtticusOS | v2.0</p>
+        </footer>
+    </div>
     <script>
-      displayRandomTip()
+        window.onload = function () {
+            var userAgent = navigator.userAgent;
+                if (userAgent.includes('AtticatBrowser')) {
+                    document.getElementById('search-bar-container').style.display = 'block';
+                }
+            };
+            document.getElementById('search-button').addEventListener('click', function () {
+                var query = document.getElementById('search-input').value;
+                if (query) {
+                    window.location.href = 'https://cse.google.com/cse?cx=b36d98672ed6d44df#gsc.tab=0&gsc.q=' + query + '&gsc.sort=';
+                }
+            });
+
+            document.getElementById('show-more-button').addEventListener('click', function () {
+                var moreContent = document.getElementById('more-content');
+                moreContent.classList.toggle('hidden');
+                var showMoreButton = document.getElementById('show-more-button');
+                if (moreContent.classList.contains('hidden')) {
+                    showMoreButton.textContent = 'Show more';
+                } else {
+                    showMoreButton.textContent = 'Show less';
+                }
+            });
+
+            displayRandomTip();
     </script>
-    <i><h1 style="color: grey; font-size: 60px">Changelogs</h1></i>
-    <p><b>Browser Alpha v1.1</b></p>
-    <ul>
-      <li style="color: lime;">New user interface</li>
-      <li style="color: lime;">Updated scrollbars</li>
-    </ul>
-    <p><b>AtticusOS v1.5.2</b></p>
-    <ul>
-      <li style="color: lime;">Switched from joshatticus.is-a.dev/os to os.joshatticus.online</li>
-      <li style="color: lime;">Minor bug fixes</li>
-    <p style="color: grey; font-size: small;">Browser for AtticusOS | Alpha v1.1</p>
 </body>
+
+</html>

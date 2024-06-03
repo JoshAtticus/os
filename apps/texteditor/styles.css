@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #333;
+  background-color: transparent;
   color: #fff;
   height: 100vh;
   display: flex;
@@ -14,9 +14,9 @@ body {
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: #333;
+  background-color: transparent;
   color: #fff;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 #options label {
@@ -24,7 +24,7 @@ body {
 }
 
 #options select {
-  background-color: #222;
+  background-color: transparent;
   color: #fff;
   border: 1px solid #fff;
   padding: 5px;
@@ -54,9 +54,9 @@ body {
   flex: 1;
   border: 1px solid #ccc;
   padding: 10px;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 16px; /* Increase default font size */
-  background-color: #222;
+  background-color: transparent;
   color: #fff;
   overflow-y: auto;
   border-radius: 2%;

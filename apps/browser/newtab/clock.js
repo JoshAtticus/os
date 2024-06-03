@@ -15,7 +15,7 @@
     seconds = seconds < 10 ? '0' + seconds : seconds;
 
     // Update the content of the <h1> element
-    var timeString = hours + ':' + minutes + ':' + seconds + ' ' + meridiem;
+    var timeString = hours + ':' + minutes + ' ' + meridiem;
     document.getElementById('current-time').innerHTML = timeString;
   }
 

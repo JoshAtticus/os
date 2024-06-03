@@ -3,25 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resetting AtticusOS</title>
+    <title>Reset Successful</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Resetting this device...</h1>
+        <h1>Reset Successful</h1>
+        <hr>
+        <p>Restart to finish reset</p>
+        <button class="reset-button" onclick="parent.window.location.reload()">Restart</button>
     </div>
-
-    <script>
-        // Function to handle the reset process
-        setTimeout(function () {
-            // Clear the localStorage on the parent page
-            parent.localStorage.clear();
-
-            // Redirect to the success page after a delay
-            window.location.href = "success.html";
-        }, 3000); // Adjust the timeout delay as needed
-    </script>
 </body>
 </html>

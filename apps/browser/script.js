@@ -9,21 +9,7 @@ var iframe = document.getElementById('page-iframe');
 var banner = document.getElementById('banner');
 var corsErrorMessage = document.getElementById('cors-error-message');
 
-var bannerMessages = {
-    'https://app.revolt.chat': 'Revolt does not work in this browser due to CORS. You can either host your own client or use a standard browser tab.',
-    'https://google.com': 'Google does not work in this browser due to CORS. You can use Bing, however clicking on any links will open in a normal browser tab.',
-    'https://discord.com': 'Discord does not work in this browser due to CORS.',
-    'https://open.spotify.com': 'Spotify does not work in this browser due to CORS.',
-    'https://youtube.com': 'YouTube does not work in this browser due to CORS.',
-    'https://github.com': 'GitHub does not work in this browser due to CORS.',
-    'https://twitter.com': 'Twitter does not work in this browser due to CORS.',
-    'https://reddit.com': 'Reddit does not work in this browser due to CORS. Use https://www.troddit.com instead.',
-    'https://browserbench.org': 'BrowserBench does not work in this browser due to CORS. Use https://html5test.com or https://jsbench.me instead.',
-    'https://messages.google.com': 'Google Messages does not work in this browser due to CORS.',
-    'https://canva.com': 'Canva does not work in this browser due to CORS.',
-    'https://figma.com': 'Figma does not work in this browser due to CORS.'
-
-};
+var bannerMessages = {};
 
 goButton.addEventListener('click', function () {
     var url = urlInput.value;

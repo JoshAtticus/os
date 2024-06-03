@@ -1,13 +1,13 @@
 body {
-  background-color: #222;
+  background-color: transparent;
   color: #fff;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 #toolbar {
-  background-color: #111;
+  background-color: transparent;
   height: 40px;
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@ body {
   height: 30px;
   margin-right: 5px;
   border: none;
-  background-color: #333;
+  background-color: transparent;
   color: #fff;
   cursor: pointer;
   border-radius: 25%;
@@ -34,7 +34,7 @@ body {
 #back-button:hover,
 #forward-button:hover,
 #refresh-button:hover {
-  background-color: #555;
+  background-color: rgb(255, 255, 255, 0.3);
   border-radius: 25%;
 }
 
@@ -42,8 +42,9 @@ body {
   flex-grow: 1;
   margin-right: 10px;
   padding: 5px;
-  border: none;
-  background-color: #333;
+  border: 1px solid rgb(100, 100, 100, 0.4);
+  border-radius: 10px;
+  background-color: transparent;
   color: #fff;
 }
 
@@ -56,7 +57,7 @@ body {
 #page-iframe {
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: transparent;
   border: none;
   position: absolute;
   top: 0;
@@ -84,6 +85,6 @@ body {
   margin-left: auto;
   padding-right: 10px;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 

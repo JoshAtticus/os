@@ -56,7 +56,7 @@ $(document).ready(function() {
         } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             os = "iOS";
         } else if (/Mac/i.test(userAgent)) {
-            os = "Mac OS";
+            os = "macOS";
         } else if (/Linux|X11/.test(userAgent)) {
             os = "Linux";
         } else if (/Windows/.test(userAgent)) {

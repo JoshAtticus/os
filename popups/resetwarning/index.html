@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>You're about to reset AtticusOS</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're about to reset AtticusOS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
 <body>
-    <center>
+    <div class="container">
         <h1>You're about to reset AtticusOS</h1>
         <hr>
-        <span>This will delete <b><i>everything</b></i> on your AtticusOS session and synced devices. <b>Close this window to cancel.</b></span>
-        <br>
-        <p></p>
-        <button class="button" id="resetButton">Reset</button>
-
+        <p>This will delete <b>everything</b> on your AtticusOS session and synced devices. <b>Close this window to cancel.</b></p>
+        <button class="reset-button" id="resetButton">Reset</button>
+    </div>
 
     <script>
         // Function to handle the reset process
@@ -31,5 +31,5 @@
             }, 3000); // Adjust the timeout delay as needed
         });
     </script>
-    </center>
 </body>
+</html>

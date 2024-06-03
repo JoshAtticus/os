@@ -1,58 +1,104 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    text-align: left;
-    background-color: #2f2f2f;
-  }
-  
-  header {
-    background-color: #000000;
-    padding: 20px;
-  }
-  
-  h1 {
-    margin: 0;
-    color: #f2f2f2;
-  }
-  
-  main {
-    margin-top: 20px;
-    color: #f2f2f2;
-  }
-
-  p {
-    color: #ffffff;
-    font-size: x-large;
-  }
-
-  a {
-    color: cyan;
-  }
-  
-  .fallback-message {
-    display: block;
-  }
-
-  li {
-    color: #fff;
-  }
-
-/* Define the scrollbar track */
-::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
+  font-family: 'Inter', sans-serif;
+  background-color: transparent;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-/* Define the scrollbar thumb (the draggable part) */
-::-webkit-scrollbar-thumb {
-  background: #222; /* Dark grey color */
-  border-radius: 25px; /* Rounded corners */
+.container {
+  text-align: center;
+  margin-top: 20vh;
 }
 
-/* Define the scrollbar track on hover (optional) */
-::-webkit-scrollbar-thumb:hover {
-  background: #444; /* Darker grey color on hover */
+.clock {
+  font-size: 60px;
+  margin-bottom: 20px;
 }
 
-/* Define the scrollbar track background */
-::-webkit-scrollbar-track {
-  background: #333; /* Grey background for the track */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background-color: #30D27B;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #28b86b;
+}
+
+#show-more-button {
+  padding: 10px 20px;
+  background-color: #30D27B;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#show-more-button:hover {
+  background-color: #28b86b;
+}
+
+.more-content {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+footer {
+  margin-top: 20px;
+  color: grey;
+  font-size: small;
+}
+
+a {
+  color: #30D27B;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+hr {
+  color: #666;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 50px;
 }

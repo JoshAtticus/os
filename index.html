@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>AtticusOS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
     <!-- Menu Bar -->
     <div class="menu-bar">
         <ul class="menu-items">
-            <li class="app-link" data-url="apps/about/index.html" data-title="About AtticusOS" title="AtticusOS v1.5.2 | ©2023 JoshAtticus | https://github.com/JoshAtticus/os">
+            <li class="app-link" data-url="apps/about/index.html" data-title="About AtticusOS" title="AtticusOS 2.0 | ©2023 - 2024 JoshAtticus | https://github.com/JoshAtticus/os">
                 <img style="height: 30px; cursor: pointer;" src="assets/logo.png" alt="Logo">
             </li>
             <li style="color: white; cursor: pointer;">File
@@ -113,29 +113,40 @@
     </div>
 
     <!-- Dock -->
-    <div class="dock">
+    <div class="dock" id="dock">
         <ul>
-            <li class="app-link"
-                data-url="apps/texteditor/index.html"
-                data-title="Text editor"
-                data-width="600"
-                data-height="400"
+            <li class="app-link dock-item"
+                data-url="apps/markpad/index.html"
+                data-title="Markpad"
+                data-width="800"
+                data-height="600"
                 data-resizable="true"
                 data-draggable="true"
-                data-maximizable="true"
-                title="Simple text editor for AtticusOS">
-                <img src="apps/texteditor/icon.png" alt="Text editor">
+                data-maximizable="false"
+                title="Text/Markdown/HTML editor created by 3r1s-s">
+                <img src="apps/markpad/icon.png" alt="Markpad">
             </li>
-            <li class="app-link"
+            <li class="app-link dock-item"
                 data-url="apps/browser/index.html"
                 data-title="Browser"
-                data-width="600"
-                data-height="400"
+                data-width="800"
+                data-height="600"
                 data-resizable="true"
                 data-draggable="true"
-                data-maximizable="true"
+                data-maximizable="false"
                 title="Simple iFrame based browser for AtticusOS">
                 <img src="apps/browser/icon.png" alt="Browser">
+            </li>
+            <li class="app-link dock-item"
+                data-url="apps/clock/index.html"
+                data-title="Clock"
+                data-width="800"
+                data-height="600"
+                data-resizable="true"
+                data-draggable="true"
+                data-maximizable="false"
+                title="Shows the date & time">
+                <img src="apps/clock/icon.png" alt="Clock">
             </li>
             <!-- Add more app icons as needed -->
         </ul>

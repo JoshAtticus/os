@@ -1,2 +1,2 @@
 # AtticusOS
-Basic webtop with BetterMeower, Text Editor and an iFrame WebBrowser.
+An awesome webtop with a pleasant UI, text editor, web browser, clock and more!

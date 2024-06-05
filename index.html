@@ -17,143 +17,15 @@
     <meta name="msapplication-TileColor" content="#3f3f3f">
     <meta name="msapplication-config" content="/manifest/browserconfig.xml?v2=true">
     <meta name="theme-color" content="#3f3f3f">
+    <meta http-equiv="refresh" content="5; url=https://os.atticat.tech" />
     <script src="assets/clock.js"></script>
 </head>
 <body>
     <input type="file" id="file-input" accept="image/*" style="display: none;">
-    <!-- Menu Bar -->
-    <div class="menu-bar">
-        <ul class="menu-items">
-            <li class="app-link" data-url="apps/about/index.html" data-title="About AtticusOS" title="AtticusOS 2.0.1 | ©2023 - 2024 JoshAtticus | https://github.com/JoshAtticus/os">
-                <img style="height: 30px; cursor: pointer;" src="assets/logo.png" alt="Logo">
-            </li>
-            <li style="color: white; cursor: pointer;">File
-                <ul>
-                    <li class="app-link"
-                        data-url="popups/resetwarning/index.html"
-                        data-title="Reset AtticusOS"
-                        data-width="200"
-                        data-height="200"
-                        data-resizable="false"
-                        data-draggable="true"
-                        data-maximizable="false"
-                        title="Resets your AtticusOS settings">
-                    Reset AtticusOS</li>
-                    <li class="close-windows-option">Close All Windows</li>
-                </ul>
-            <li style="color: white; cursor: pointer;">Edit
-                <ul>
-                    <li style="color: white; cursor: pointer;">Wallpaper
-                        <ul>
-                            <li style="color: grey;">Collections</li>
-                            <li class="custom-wallpaper-option" style="cursor: pointer;">AtticusOS >
-                                <ul>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/default/wallpaper1.avif" style="cursor: pointer;">Blurple Black</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/default/wallpaper2.avif" style="cursor: pointer;">Minty Green</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/default/wallpaper3.avif" style="cursor: pointer;">Autumn Gradient</li>     
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/default/wallpaper4.avif" style="cursor: pointer;">Red Night</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/default/wallpaper5.avif" style="cursor: pointer;">Colourful Rainbow</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/default/wallpaper6.avif" style="cursor: pointer;">Early Morning Solstice</li>
-                                </ul>    
-                            </li>
-                            <li class="custom-wallpaper-option" style="cursor: pointer;">1AM >
-                                <ul>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/1am/branches.avif" style="cursor: pointer;">Branches</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/1am/horizons.avif" style="cursor: pointer;">Twilight</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/1am/palmtree.avif" style="cursor: pointer;">Palm Tree</li>     
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/1am/powerlines.avif" style="cursor: pointer;">Power Lines</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/1am/tree.avif" style="cursor: pointer;">Australian Tree</li>
-                                </ul> 
-                            </li>   
-                            <li class="custom-wallpaper-option" style="cursor: pointer;">Paint Powder >
-                                <ul>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/paintpowder/Blue.avif" style="cursor: pointer;">Blue</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/paintpowder/Green.avif" style="cursor: pointer;">Green</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/paintpowder/Yellow.avif" style="cursor: pointer;">Yellow</li>     
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/paintpowder/Purple.avif" style="cursor: pointer;">Purple</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/paintpowder/Red.avif" style="cursor: pointer;">Red</li>
-                                    <li class="wallpaper-option" data-image="assets/wallpapers/paintpowder/Multicolour.avif" style="cursor: pointer;">Multicolour</li>
-                                </ul> 
-                            </li>   
-                            <li style="cursor: pointer; color: grey;">Custom Wallpaper</li>
-                            <li class="file-upload-option" style="cursor: pointer;">Upload Image</li>
-                            <!-- <li class="image-url-option" style="cursor: pointer;">Image URL</li> -->         
-                        </ul>
-                    </li>
-                </ul></li>
-            <li style="color: white; cursor: pointer;">View
-                <ul>
-                    <li class="toggle-bold-option" style="cursor: pointer;">Toggle Bold Text</li>
-                    <li class="zoom-menu">
-                        Zoom
-                        <ul>
-                            <li style="color: grey; cursor: default;">Zoom is experimental and does not work on Safari or Webkit based browsers.</li>
-                            <li class="zoom-option" data-zoom="50">50%</li>
-                            <li class="zoom-option" data-zoom="75">75%</li>
-                            <li class="zoom-option" data-zoom="100">100% (Default)</li>
-                            <li class="zoom-option" data-zoom="125">125%</li>
-                            <li class="zoom-option" data-zoom="150">150%</li>
-                            <li class="zoom-option" data-zoom="200">200%</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-              
-            
-             <!-- Add more menu items as needed -->
-        </ul>
-        <ul>
-            <li class="app-link" data-url="apps/clock/index.html" data-title="Clock" style="list-style-type: none; margin-bottom: 20px; cursor: pointer;">
-                <div class="clock"></div>
-            </li>
-            <li class="app-link" data-url="apps/updater/index.html" data-title="Software Updates" style="list-style-type: none; cursor: pointer; display: none;">
-                <img class="updates" src="assets/system_update_FILL0_wght400_GRAD0_opsz48.svg" style="height: 30px; margin-top: -25px;"></img>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Dock -->
-    <div class="dock" id="dock">
-        <ul>
-            <li class="app-link dock-item"
-                data-url="apps/markpad/index.html"
-                data-title="Markpad"
-                data-width="800"
-                data-height="600"
-                data-resizable="true"
-                data-draggable="true"
-                data-maximizable="false"
-                title="Text/Markdown/HTML editor created by 3r1s-s">
-                <img src="apps/markpad/icon.png" alt="Markpad">
-            </li>
-            <li class="app-link dock-item"
-                data-url="apps/browser/index.html"
-                data-title="Browser"
-                data-width="800"
-                data-height="600"
-                data-resizable="true"
-                data-draggable="true"
-                data-maximizable="false"
-                title="Simple iFrame based browser for AtticusOS">
-                <img src="apps/browser/icon.png" alt="Browser">
-            </li>
-            <li class="app-link dock-item"
-                data-url="apps/clock/index.html"
-                data-title="Clock"
-                data-width="800"
-                data-height="600"
-                data-resizable="true"
-                data-draggable="true"
-                data-maximizable="false"
-                title="Shows the date & time">
-                <img src="apps/clock/icon.png" alt="Clock">
-            </li>
-            <!-- Add more app icons as needed -->
-        </ul>
-    </div>
 
     <!-- Desktop -->
     <div class="desktop">
+        <h1 style="color: #fff; font-family: 'Inter'">You're using AtticusOS on GitHub Pages (bad), redirecting to Cloudflare Pages site in 5 seconds...</div></h1>
         <div class="app-window">
             <div class="window-bar">
                 <div class="red-circle"></div>

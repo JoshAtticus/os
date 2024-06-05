@@ -275,6 +275,14 @@ body {
     cursor: not-allowed;
 }
 
+.vertical {
+    height: 50px;
+    color: #cccccc;
+    background-color: #cccccc;
+    border-color: #cccccc;
+    border-radius: 100px;
+}
+
 
 
 

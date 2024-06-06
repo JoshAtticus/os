@@ -1,2 +1,8 @@
 # Operating system junk
 .DS_STORE
+
+# node junk
+node_modules
+
+# builds
+builds

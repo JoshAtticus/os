@@ -2,9 +2,9 @@ name: Build desktop app
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "desktop" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "desktop" ]
   release:
     types: [created]
 
@@ -19,6 +19,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: desktop  # Ensure the workflow checks out the desktop branch
 
     - name: Use Node.js 20
       uses: actions/setup-node@v3
@@ -62,6 +64,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: desktop  # Ensure the workflow checks out the desktop branch
 
     - name: Create Release
       id: create_release

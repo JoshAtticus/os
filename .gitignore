@@ -3,6 +3,7 @@
 
 # node junk
 node_modules
+npm-debug.log
 
 # builds
 builds

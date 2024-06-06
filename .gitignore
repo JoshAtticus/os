@@ -1,2 +1,9 @@
 # Operating system junk
 .DS_STORE
+
+# node junk
+node_modules
+npm-debug.log
+
+# builds
+builds

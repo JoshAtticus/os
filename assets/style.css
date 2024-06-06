@@ -205,6 +205,7 @@ body {
     color: #fff;
     border: none;
     border-radius: 0;
+    z-index: 99999999999999;
 }
 
 .menu-items li ul {
@@ -214,7 +215,7 @@ body {
     background: rgba(50, 50, 50, 0.3);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 99999999999999;
     padding: 4px 4px;
 }
 
@@ -222,12 +223,14 @@ body {
     display: block;
     backdrop-filter: blur(50px);
     background: rgba(50, 50, 50, 0.3);
+    z-index: 99999999999999;
 }
 
 .menu-items li ul li {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    z-index: 99999999999999;
 }
 
 .menu-items li ul li ul {
@@ -235,12 +238,14 @@ body {
     display: none;
     backdrop-filter: blur(50px);
     background: rgba(50, 50, 50, 0.3);
+    z-index: 99999999999999;
 }
 
 .menu-items li ul li:hover > ul {
     display: block;
     backdrop-filter: blur(50px);
     background: rgba(50, 50, 50, 0.3);
+    z-index: 99999999999999;
 }
 
 .menu-items li ul {
@@ -248,6 +253,7 @@ body {
     color: #fff;
     backdrop-filter: blur(50px);
     background: rgba(50, 50, 50, 0.3);
+    z-index: 99999999999999;
 }
 
 .menu-items li ul li ul {
@@ -258,12 +264,14 @@ body {
     margin-top: -24px; /* Adjust this value as needed */
     backdrop-filter: blur(50px);
     background: rgba(50, 50, 50, 0.3);
+    z-index: 99999999999999;
 }
 
 .menu-items li ul li:hover > ul {
     display: block;
     backdrop-filter: blur(50px);
     background: rgba(50, 50, 50, 0.3);
+    z-index: 99999999999999;
 }
 
 .bold-text {
@@ -281,6 +289,10 @@ body {
     background-color: #cccccc;
     border-color: #cccccc;
     border-radius: 100px;
+}
+
+.menu-bar-items {
+    z-index: 99999999999999;
 }
 
 

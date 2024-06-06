@@ -6,7 +6,7 @@
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "electron": "electron .",
-      "build-mac": "electron-packager ./ AtticusOS --platform=darwin,win32 --arch=universal,x64,arm64 --out=builds",
+      "build-mac": "electron-packager ./ AtticusOS --platform=darwin --arch=universal --out=builds",
       "build-windows": "electron-packager ./ AtticusOS --platform=win32 --arch=x64,arm64 --out=builds",
       "build-linux": "electron-packager ./ AtticusOS --platform=linux --arch=x64,arm64 --out=builds"
     },

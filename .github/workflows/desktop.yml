@@ -34,8 +34,6 @@ jobs:
       if: matrix.os == 'macos-latest'
       run: |
         npm run build-mac
-        mkdir -p builds/AtticusOS-darwin-universal
-        mv path/to/macos/output/AtticusOS.app builds/AtticusOS-darwin-universal/
       env:
         CI: true
 

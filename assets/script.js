@@ -173,12 +173,10 @@ $(document).ready(function() {
                 localStorage.setItem("safariZoomState", "disabled");
             }
         });
-
-        // ... (other code)
     });
 
     $(document).ready(function() {
-        $("body").css("background-image", "url('assets/wallpapers/default/wallpaper1.webp')");
+        $("body").css("background-image", "url('assets/wallpapers/default/wallpaper1.avif')");
     });
 
     $(document).ready(function() {

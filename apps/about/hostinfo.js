@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    // ... (other code)
-
     // Update browser information in the <span> element
     function updateBrowserInfo() {
         var browserInfo = getBrowserInfo();
@@ -32,11 +30,9 @@ $(document).ready(function() {
     // Initial update on page load
     updateBrowserInfo();
 
-    // ... (other code)
 });
 
 $(document).ready(function() {
-    // ... (other code)
 
     // Update operating system information in the <span> element
     function updateOsInfo() {
@@ -70,6 +66,4 @@ $(document).ready(function() {
 
     // Initial update on page load
     updateOsInfo();
-
-    // ... (other code)
 });

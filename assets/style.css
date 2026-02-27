@@ -12,62 +12,116 @@ body {
 }
 
 .menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px; /* Explicit height */
     backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     background: rgba(50, 50, 50, 0.3);
     color: #fff;
     font-family: 'Inter', sans-serif;
     display: flex;
     align-items: center;
-    padding: 1px;
-    border-radius: 0px;
-    align-self: center;
-    z-index: 99999999999999;
+    padding: 0 10px; /* Horizontal padding only */
+    border-radius: 0;
+    z-index: 999999999999999; /* Higher than windows/dock */
+    box-sizing: border-box; /* Handle padding correctly */
 }
 
-.menu-bar .clock {
-    position: absolute;
-    right: 25px;
-    align-items: center;
-    z-index: 99999999999999;
-}
-.menu-bar .updates {
-    position: absolute;
-    right: 100px;
-    align-items: center;
-    z-index: 99999999999999;
-}
-
-.logo-container {
+.menu-group {
     display: flex;
     align-items: center;
-    z-index: 99999999999999;
+    height: 100%;
 }
 
-.logo {
-    height: 12px;
-    vertical-align: middle;
-    margin-right: 5px;
-    z-index: 99999999999999;
-}
-
-.menu-items {
+.menu-item {
+    position: relative;
+    padding: 0 10px;
+    height: 100%;
     display: flex;
     align-items: center;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    z-index: 99999999999999;
+    cursor: pointer;
+    color: white;
 }
 
-.menu-items li {
-    display: inline-block;
-    padding: 5px;
-    z-index: 99999999999999;
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.clock-icon {
-    list-style-type: none;
-    z-index: 99999999999999;
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position below text */
+    left: 0;
+    min-width: 200px;
+    
+    /* Frosted glass effect */
+    background: rgba(40, 40, 40, 0.6); /* Slightly darker/more opaque base */
+    backdrop-filter: blur(20px); /* Reduce blur radius for cleaner look */
+    -webkit-backdrop-filter: blur(20px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    
+    border-radius: 12px;
+    padding: 6px; /* Slightly increased padding */
+    z-index: 2147483647;
+}
+
+.menu-item:hover > .dropdown {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Submenus */
+.dropdown-item.has-submenu > .submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -6px; /* Align with parent dropdown padding to keep consistent vertical flow */
+    margin-left: 2px; /* Small gap */
+}
+
+/* Invisible bridge to prevent menu closing */
+.dropdown-item.has-submenu > .submenu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -20px; /* Cover the margin gap plus a wide safety buffer */
+    width: 30px;
+    background: transparent;
+    z-index: 1; /* Before needs to be interactive, so positive z-index or auto */
+}
+
+.dropdown-item.has-submenu:hover > .submenu {
+    display: block;
+}
+
+/* Specific item styles */
+.menu-group.right .menu-item:hover {
+    background-color: transparent; /* Don't highlight clock area */
+    cursor: default;
+}
+
+.clock {
+    display: flex;
+    align-items: center;
+    color: white;
 }
 
 #dock {
@@ -82,6 +136,7 @@ body {
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 99999999999998;
 }
 
 .dock-item {
@@ -129,7 +184,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 40px);
+    height: 100vh;
+    padding-top: 30px; /* Account for fixed menu bar */
+    box-sizing: border-box;
     overflow: hidden;
 }
 
@@ -144,6 +201,31 @@ body {
     overflow: hidden;
     display: none;
     cursor: move;
+    transform-origin: center center;
+    animation: window-open 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                height 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                top 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+                left 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+                border-radius 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.app-window.no-transition {
+    transition: none !important;
+}
+
+.app-window.closing {
+    animation: window-close 0.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes window-open {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes window-close {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0; }
 }
 
 .window-bar {
@@ -208,72 +290,6 @@ body {
     z-index: 99999999999999;
 }
 
-.menu-items li ul {
-    display: none;
-    position: absolute;
-    backdrop-filter: blur(50px);
-    background: rgba(50, 50, 50, 0.3);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 99999999999999;
-    padding: 4px 4px;
-}
-
-.menu-items li:hover > ul {
-    display: block;
-    backdrop-filter: blur(50px);
-    background: rgba(50, 50, 50, 0.3);
-    z-index: 99999999999999;
-}
-
-.menu-items li ul li {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    z-index: 99999999999999;
-}
-
-.menu-items li ul li ul {
-    color: #fff;
-    display: none;
-    backdrop-filter: blur(50px);
-    background: rgba(50, 50, 50, 0.3);
-    z-index: 99999999999999;
-}
-
-.menu-items li ul li:hover > ul {
-    display: block;
-    backdrop-filter: blur(50px);
-    background: rgba(50, 50, 50, 0.3);
-    z-index: 99999999999999;
-}
-
-.menu-items li ul {
-    background-color: #333;
-    color: #fff;
-    backdrop-filter: blur(50px);
-    background: rgba(50, 50, 50, 0.3);
-    z-index: 99999999999999;
-}
-
-.menu-items li ul li ul {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 20%;
-    margin-top: -24px; /* Adjust this value as needed */
-    backdrop-filter: blur(50px);
-    background: rgba(50, 50, 50, 0.3);
-    z-index: 99999999999999;
-}
-
-.menu-items li ul li:hover > ul {
-    display: block;
-    backdrop-filter: blur(50px);
-    background: rgba(50, 50, 50, 0.3);
-    z-index: 99999999999999;
-}
-
 .bold-text {
     font-weight: bold;
 }
@@ -283,17 +299,6 @@ body {
     cursor: not-allowed;
 }
 
-.vertical {
-    height: 50px;
-    color: #cccccc;
-    background-color: #cccccc;
-    border-color: #cccccc;
-    border-radius: 100px;
-}
-
-.menu-bar-items {
-    z-index: 99999999999999;
-}
 
 
 

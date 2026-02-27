@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // ... (other code)
 
     // Update screen resolution in the <span> element
     function updateScreenResolution() {
@@ -12,5 +11,4 @@ $(document).ready(function() {
     // Initial update on page load
     updateScreenResolution();
 
-    // ... (other code)
 });

@@ -1,25 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Clock and Calendar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-      <div id="clock">
-        <div id="analog-clock">
-          <div id="hour-hand" class="hand"></div>
-          <div id="minute-hand" class="hand"></div>
-          <div id="second-hand" class="hand"></div>
-          <div id="center-dot"></div>
+    <div class="tabs">
+        <button class="tab active" data-view="world-clock">Clock</button>
+        <button class="tab" data-view="stopwatch">Stopwatch</button>
+        <button class="tab" data-view="timer">Timer</button>
+    </div>
+
+    <div class="content" id="view-container">
+        <!-- World Clock View -->
+        <div id="world-clock" class="view">
+            <div class="clock-display" id="main-clock">--:--</div>
+            <div class="date-display" id="date-display">--</div>
         </div>
-        <div id="digital-clock"></div>
-      </div>
-      <div id="calendar">
-        <div id="month"></div>
-        <div id="day"></div>
-        <div id="year"></div>
-      </div>
+
+        <!-- Stopwatch View -->
+        <div id="stopwatch" class="view">
+            <div class="stopwatch-display" id="sw-display">00:00.00</div>
+            <div class="controls">
+                <button class="btn btn-lap" id="sw-lap" disabled>Lap</button>
+                <button class="btn btn-start" id="sw-start">Start</button>
+            </div>
+            <div class="laps-list" id="sw-laps"></div>
+        </div>
+
+        <!-- Timer View -->
+        <div id="timer" class="view">
+             <div class="timer-container" id="timer-setup">
+                <div class="timer-inputs">
+                    <div class="timer-field-group">
+                        <input type="number" min="0" max="23" value="00" class="timer-input" id="timer-h">
+                        <span class="timer-label">hours</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                     <div class="timer-field-group">
+                        <input type="number" min="0" max="59" value="00" class="timer-input" id="timer-m">
+                        <span class="timer-label">min</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                     <div class="timer-field-group">
+                        <input type="number" min="0" max="59" value="00" class="timer-input" id="timer-s">
+                        <span class="timer-label">sec</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn btn-start" id="timer-start">Start</button>
+                </div>
+             </div>
+
+             <div class="timer-display" id="timer-display">00:00:00</div>
+             <div class="controls" id="timer-controls" style="display:none">
+                <button class="btn btn-stop" id="timer-cancel">Cancel</button>
+             </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

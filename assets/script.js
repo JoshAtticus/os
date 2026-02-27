@@ -63,55 +63,87 @@ $(document).ready(function() {
         });
     }
 
+    // Initialize System API
+    window.System = {
+        openApp: function(url, title, width, height) {
+            // Create a new window
+            var $newWindow = $('<div class="app-window"><div class="window-bar"><div class="red-circle"></div><div class="green-circle"></div><div class="title"></div></div><embed class="app-iframe" src=""></embed></div>');
+            $newWindow.find(".app-iframe").attr("src", url);
+            $newWindow.find(".title").text(title);
+            $newWindow.appendTo(".desktop");
+
+            // Make the new window draggable and resizable
+            makeWindowDraggableAndResizable($newWindow, true, true, true);
+
+            // Set initial z-index and bring to front
+            highestZIndex++;
+            $newWindow.css("z-index", highestZIndex);
+
+            // Move the new window based on available space
+            var menuBarHeight = $(".menu-bar").outerHeight() || 40;
+            var dockHeight = $(".dock").outerHeight() || 80;
+            
+            // Use absolute positioning for precise placement
+            $newWindow.css("position", "absolute");
+            
+            // Calculate max dimensions
+            var maxW = $(window).width() - 40; // 20px padding on sides
+            var maxH = $(window).height() - menuBarHeight - dockHeight - 40; // Padding top/bottom
+
+            // Determine initial size
+            var w = width ? parseInt(width) : defaultWidth;
+            var h = height ? parseInt(height) : defaultHeight;
+            
+            var setWidth = Math.min(w, maxW);
+            var setHeight = Math.min(h, maxH);
+            
+            $newWindow.css({
+                "width": setWidth + "px",
+                "height": setHeight + "px"
+            });
+            
+            // Calculate centered position
+            var leftPos = ($(window).width() - setWidth) / 2;
+            var availableH = $(window).height() - menuBarHeight - dockHeight;
+            var topPos = menuBarHeight + (availableH - setHeight) / 2;
+            
+            $newWindow.css({
+                "left": leftPos + "px",
+                "top": topPos + "px"
+            });
+
+            // Show the new window
+            $newWindow.addClass("open");
+            
+            return $newWindow;
+        },
+        restart: function() {
+            location.reload();
+        },
+        changeWallpaper: function(url) {
+            $("body").css("background-image", "url('" + url + "')");
+            localStorage.setItem("wallpaper", url);
+        },
+        addMenuBarWidget: function(html) {
+             // ensure menu-group right exists
+             if ($(".menu-group.right").length === 0) {
+                 $(".menu-bar").append('<div class="menu-group right" style="display:flex; margin-left: auto; align-items:center; padding-right:15px;"></div>');
+             }
+             // Ensure widgets container exists
+             if ($(".menu-group.right .widgets").length === 0) {
+                 $(".menu-group.right").prepend('<div class="widgets" style="display:flex; gap:10px; margin-right:10px;"></div>');
+             }
+             $(".menu-group.right .widgets").append(html);
+        }
+    };
+
     $(".app-link").click(function() {
         var url = $(this).data("url");
         var appTitle = $(this).data("title");
-
-        // Create a new window
-        var $newWindow = $('<div class="app-window"><div class="window-bar"><div class="red-circle"></div><div class="green-circle"></div><div class="title"></div></div><embed class="app-iframe" src=""></embed></div>');
-        $newWindow.find(".app-iframe").attr("src", url);
-        $newWindow.find(".title").text(appTitle);
-        $newWindow.appendTo(".desktop");
-
-        // Make the new window draggable and resizable
-        makeWindowDraggableAndResizable($newWindow, true, true, true);
-
-        // Set initial z-index and bring to front
-        highestZIndex++;
-        $newWindow.css("z-index", highestZIndex);
-
-        // Move the new window based on available space
-        var menuBarHeight = $(".menu-bar").outerHeight() || 40;
-        var dockHeight = $(".dock").outerHeight() || 80;
+        var width = $(this).data("width");
+        var height = $(this).data("height");
         
-        // Use absolute positioning for precise placement
-        $newWindow.css("position", "absolute");
-        
-        // Calculate max dimensions
-        var maxW = $(window).width() - 40; // 20px padding on sides
-        var maxH = $(window).height() - menuBarHeight - dockHeight - 40; // Padding top/bottom
-
-        // Determine initial size
-        var setWidth = Math.min(defaultWidth, maxW);
-        var setHeight = Math.min(defaultHeight, maxH);
-        
-        $newWindow.css({
-            "width": setWidth + "px",
-            "height": setHeight + "px"
-        });
-        
-        // Calculate centered position
-        var leftPos = ($(window).width() - setWidth) / 2;
-        var availableH = $(window).height() - menuBarHeight - dockHeight;
-        var topPos = menuBarHeight + (availableH - setHeight) / 2;
-        
-        $newWindow.css({
-            "left": leftPos + "px",
-            "top": topPos + "px"
-        });
-
-        // Show the new window
-        $newWindow.addClass("open");
+        System.openApp(url, appTitle, width, height);
     });
 
     // Close window on click of red circle
@@ -236,28 +268,115 @@ $(document).ready(function() {
         }
     });
 
-    $(".menu-bar").on("click", ".file-upload-option", function() {
-        $("#file-input").click();
-    });
+    // --- Context Menu Logic ---
+    $(document).on("contextmenu", function(e) {
+        // Allow default context menu inside apps (iframes)
+        if ($(e.target).closest(".app-window").length > 0) return true;
+        
+        e.preventDefault();
+        
+        // Remove existing custom menu
+        $("#custom-context-menu").remove();
+        
+        // Create Menu Structure
+        var menu = $('<div id="custom-context-menu" class="context-menu"></div>');
+        
+        var changeWallpaperItem = $('<div class="context-item"><span class="icon">🖼️</span> Change Wallpaper...</div>');
+        changeWallpaperItem.on("click", function() {
+            System.openApp('apps/settings/index.html', 'Settings', 800, 600);
+            $("#custom-context-menu").remove();
+        });
+        
+        var settingsItem = $('<div class="context-item"><span class="icon">⚙️</span> Settings...</div>');
+        settingsItem.on("click", function() {
+            System.openApp('apps/settings/index.html', 'Settings', 800, 600);
+            $("#custom-context-menu").remove();
+        });
+        
+        var moreOptionsItem = $('<div class="context-item separator-top"><span class="icon">⋮</span> More Options...</div>');
+        moreOptionsItem.on("click", function(event) {
+             // To show the browser context menu, we can't trigger it programmatically.
+             // We can only stop preventing default on the NEXT click.
+             $("#custom-context-menu").remove();
+             alert("Right click again now to see the browser menu.");
+             
+             // Temporarily enhance the next context menu event
+             var originalHandler = $(document).data("events") ? $(document).data("events").contextmenu : null;
+             // But jQuery event handlers are complex. 
+             // Better approach: set a flag.
+             window.skipCustomContextMenu = true;
+             setTimeout(function() { window.skipCustomContextMenu = false; }, 2000);
+        });
 
-    $(".menu-bar").on("click", ".image-url-option", function() {
-        var imageUrl = prompt("Please enter an image URL:", "");
-        if (imageUrl) {
-            $("body").css("background-image", "url('" + imageUrl + "')");
-            localStorage.setItem("wallpaper", imageUrl);
+        menu.append(changeWallpaperItem);
+        menu.append(settingsItem);
+        menu.append(moreOptionsItem);
+        
+        $("body").append(menu);
+        
+        // Position Menu (check bounds)
+        var menuWidth = menu.outerWidth();
+        var menuHeight = menu.outerHeight();
+        var x = e.pageX;
+        var y = e.pageY;
+        
+        if (x + menuWidth > $(window).width()) x -= menuWidth;
+        if (y + menuHeight > $(window).height()) y -= menuHeight;
+        
+        menu.css({top: y, left: x});
+        menu.addClass("visible");
+    });
+    
+    // Close context menu on click anywhere else
+    $(document).on("click", function(e) {
+        if (!$(e.target).closest("#custom-context-menu").length) {
+            $("#custom-context-menu").remove();
         }
     });
 
-    $("#file-input").change(function() {
-        var file = this.files[0];
-        if (file) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                var imageUrl = e.target.result;
-                $("body").css("background-image", "url('" + imageUrl + "')");
-                localStorage.setItem("wallpaper", imageUrl);
-            };
-            reader.readAsDataURL(file);
+    // Check flag for context menu
+    var originalContextMenu = document.oncontextmenu;
+    document.addEventListener('contextmenu', function(e) {
+        if (window.skipCustomContextMenu) {
+            e.stopPropagation(); // Stop our jQuery handler from running again?
+            return true; // Use default
         }
+    }, true); // Capture phase
+
+
+    // --- Dock Logic ---
+    // Function to update dock indicators
+    function updateDockIndicators() {
+        $(".dock-icon").removeClass("open");
+        
+        $(".app-window").each(function() {
+            // Find corresponding dock icon based on title/alt text mapping 
+            // Ideally we need data-app attributes. 
+            // For now, let's rely on mapping common names.
+            var title = $(this).find(".title").text().toLowerCase();
+            
+            $(".dock-icon img").each(function() {
+                var alt = $(this).attr("alt").toLowerCase();
+                 // Heuristic matching
+                if (title.includes(alt) || alt.includes(title) || (title.includes("settings") && alt.includes("settings"))) {
+                    $(this).parent().addClass("open");
+                }
+            });
+        });
+    }
+
+    // Call updates whenever windows change
+    // We hook into our System.openApp and makeWindowDraggableAndResizable (which handles close click)
+    // But since we removed the original window creation code blocks, we need to ensure our new System functions call this.
+    
+    // Override/Extend the window removal logic we edited earlier to update dock
+    var originalRemove = $.fn.remove;
+    // ... risky to override jQuery.remove.
+    // Instead let's use a MutationObserver on .desktop
+    var observer = new MutationObserver(function(mutations) {
+        updateDockIndicators();
     });
+    var desktop = document.querySelector(".desktop");
+    if(desktop) observer.observe(desktop, { childList: true });
+
 });
